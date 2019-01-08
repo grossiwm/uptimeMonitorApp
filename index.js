@@ -68,11 +68,9 @@ var unifiedServer = function(req, res){
         //Define the handlers
         var handlers = {};
 
-        //Sample handler
-        handlers.sample = function(data, callback){
-            //Callback a http status code, and a payload object
-            callback(406, {'name':'sample handler'});
-
+        //Ping handler
+        handlers.ping = function (data, callback) {
+            callback(200);
         };
 
         //Not found handler
@@ -82,7 +80,7 @@ var unifiedServer = function(req, res){
 
         //Define the request router
         var router = {
-            'sample' : handlers.sample
+            'ping' : handlers.ping
         };
 
         //Choose the handler this request schould go, if no request is found use the not found handler
